@@ -4,8 +4,12 @@ import com.example.detector.exception.ExceptionHandling;
 import com.example.detector.service.DetectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 
 @RestController
@@ -24,4 +28,6 @@ public class DetectorController extends ExceptionHandling {
            String gender = detectorService.detectGender(name, variant);
             return new ResponseEntity(gender, HttpStatus.OK);
     }
+
+
 }

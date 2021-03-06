@@ -523,7 +523,6 @@ Tymoteusz
 Tytus
 Urban
 Ursyn
-
 Wacław
 Wahid
 Waldemar
@@ -573,4 +572,3 @@ Zygmunt
 Żarko
 Żelisław
 Żytomir
-
