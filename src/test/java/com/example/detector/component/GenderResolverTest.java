@@ -1,22 +1,26 @@
 package com.example.detector.component;
 
+import com.example.detector.exception.InvalidGenderParamException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class GenderResolverTest {
 
+    @Autowired
     GenderResolver genderResolver;
 
-    @BeforeEach
-    void setUp() {
-        genderResolver = new FromFileGenderResolver();
-
-    }
 
     @Test
-    void detectGender() {
+    void detectGender() throws IOException {
         assertEquals("MALE", genderResolver.detectGender("Jan Maria", "ONE"));
         assertEquals("INCONCLUSIVE", genderResolver.detectGender("Jan Maria", "ALL"));
         assertEquals("FEMALE", genderResolver.detectGender("Maria Jan", "ONE"));
@@ -26,7 +30,6 @@ class GenderResolverTest {
         assertEquals("INCONCLUSIVE", genderResolver.detectGender("a Maria Agata", "ONE"));
         assertEquals("INCONCLUSIVE", genderResolver.detectGender("a Maria Agata", "ALL"));
     }
-    @Test
-    void getAllNameTokensForGender() {
-    }
+
+
 }
